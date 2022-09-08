@@ -20,3 +20,6 @@ def get_age(d: dict) -> int:
 
 for p in sorted(persons, key=get_age, reverse=True):
     print(f"{p['name']:20} {p['age']:2}")
+
+for p in sorted(persons, key=lambda d: d['age'], reverse=True):
+    print(f"{p['name']:20} {p['age']:2}")
