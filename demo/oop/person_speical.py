@@ -17,8 +17,8 @@ class Person:
 
 
 p1 = Person("Abc", 20)  # p1.__init__()
-p2 = Person("Abc", 20)
-p3 = Person("Abc", 30)
+p2 = Person("Def", 20)
+p3 = Person("Bbc", 30)
 print(p1 == p2)  # p1.__eq__(p2)
 print(p1 != p2)
 # print(p3 > p2)  # p3.__gt__(p2)
@@ -28,4 +28,7 @@ print(int(p1) + int(p2))  # p1.__int__()
 persons = [p1, p2, p3, Person("Xyz", 15)]
 
 for p in sorted(persons):
+    print(p)
+
+for p in sorted(persons, key=lambda p: p.name):
     print(p)
