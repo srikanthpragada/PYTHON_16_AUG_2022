@@ -1,3 +1,11 @@
+class FundsError(Exception):
+    def __init__(self, balance, amount):
+        self.__message = f"Available balance is {balance}, but withdraw amount is {amount}"
+
+    def __str__(self):
+        return self.__message
+
+
 class Account:
     # Constructor
     def __init__(self, acno, ahname, balance=0):
@@ -11,6 +19,9 @@ class Account:
         self.balance += amount
 
     def withdraw(self, amount):
+        if self.balance < amount:
+            raise FundsError(self.balance, amount)
+
         self.balance -= amount
 
     def getbalance(self):
@@ -26,5 +37,10 @@ a1.deposit(10000)
 a1.deposit(20000)
 
 print(a1.getbalance())
-print(a1)   # a1.__str__
+print(a1)  # a1.__str__
+
 a2 = Account(2, "Tom", 20000)
+try:
+    a2.withdraw(30000)
+except FundsError as ex:
+    print(ex)
