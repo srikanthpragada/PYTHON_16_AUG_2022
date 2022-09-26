@@ -1,0 +1,6 @@
+Scott,87,55,46,88
+Bob,abc,xyz,39,49
+
+Tom,88,77,,34
+Richards,87,94,76,85
+Jason,77,88
