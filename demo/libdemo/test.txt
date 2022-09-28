@@ -1,0 +1,4 @@
+This is to      test our word     freqency program
+This is line-two
+This is line,    three
+This is just a simple    text file
