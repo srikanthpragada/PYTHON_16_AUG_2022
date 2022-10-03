@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-WEBSITE = "https://www.w3schools.com"
+WEBSITE = "http://www.srikanthtechnologies.com"
 resp = requests.get(WEBSITE)
 contents = resp.text
 
@@ -14,7 +14,10 @@ for a in soup.find_all("a"):
         continue
 
     if not href.startswith("http"):
-        href = WEBSITE + href
+        if href.startswith("/"):
+            href = WEBSITE + href
+        else:
+            href = WEBSITE + "/" + href
 
     if href not in links:
         links.append(href)
