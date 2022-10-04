@@ -13,7 +13,7 @@ def emp_to_dict(emp):
 employees = []
 con = sqlite3.connect(dbutil.DBNAME)
 cur = con.cursor()
-cur.execute("select * from employees")  # SQL Command
+cur.execute("select * from employees order by salary desc")  # SQL Command
 
 for emp in cur.fetchall():
     employees.append(emp_to_dict(emp))  # Convert tuple to dict
